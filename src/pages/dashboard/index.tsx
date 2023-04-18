@@ -67,9 +67,13 @@ export default function Dashboard() {
     },
   );
 
-  const { data: products, isLoading, isError } = api.product.getAll.useQuery();
+  const { data: products, isLoading, refetch: refetchProducts, isError } = api.product.getAll.useQuery();
 
-  const { mutate: createProduct } = api.product.create.useMutation();
+  const { mutate: createProduct } = api.product.create.useMutation({
+    onSuccess: () => {
+      void refetchProducts();
+    }
+  });
 
   const { mutate: createUser } = api.user.create.useMutation();
 

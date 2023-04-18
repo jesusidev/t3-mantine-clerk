@@ -112,9 +112,13 @@ export function CardProduct({
       await trpc.product.getAll.cancel();
       const previousProducts = trpc.product.getAll.getData();
 
-      trpc.product.getAll.setData(
-        undefined,
-        previousProducts?.filter((p) => p.id === product.id).map((p) => ({ ...p, ...product })),
+      trpc.product.getAll.setData(undefined,
+        previousProducts?.filter((p) => {
+          if (p.id === product.id) {
+            return product;
+          }
+          return p;
+        }),
         );
 
       return { previousProducts };
