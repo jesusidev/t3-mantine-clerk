@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import {
   IconCircleCheckFilled,
   IconDots,
@@ -16,7 +14,6 @@ import { ActionIcon, Button, Card, Center, createStyles, Group, Image, Menu, rem
 import Link from 'next/link';
 import { api } from '~/utils/api';
 import { notifications } from '@mantine/notifications';
-import { type Product } from '@prisma/client';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -39,7 +36,6 @@ const useStyles = createStyles((theme) => ({
     marginBottom: rem(5),
   },
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   action: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
     ...theme.fn.hover({
@@ -96,7 +92,6 @@ interface ProductCardProps {
 }
 
 export function CardProduct({
-                              className,
                               id,
                               image,
                               link,
@@ -107,7 +102,7 @@ export function CardProduct({
                               categories,
                               quantity,
                               ...others
-                            }: ProductCardProps & Omit<React.ComponentPropsWithoutRef<'div'>, keyof ProductCardProps>) {
+                            }: ProductCardProps) {
   const { classes, cx } = useStyles();
   const linkProps = { href: link };
   const trpc = api.useContext();
@@ -117,15 +112,10 @@ export function CardProduct({
       await trpc.product.getAll.cancel();
       const previousProducts = trpc.product.getAll.getData();
 
-      trpc.product.getAll.setData(undefined, (prev) => {
-        if (!prev) return previousProducts;
-        return prev.map((p) => {
-          if (p.id === product.id) {
-            return product;
-          }
-          return p;
-        });
-      });
+      trpc.product.getAll.setData(
+        undefined,
+        previousProducts?.filter((p) => p.id === product.id).map((p) => ({ ...p, ...product })),
+        );
 
       return { previousProducts };
     },
@@ -171,7 +161,7 @@ export function CardProduct({
     onSettled: async () => {
       await trpc.product.getAll.invalidate();
     },
-    onSuccess: (product: Product) => {
+    onSuccess: (product) => {
       notifications.show({
         id: product.id,
         title: 'Deleted Successful',
@@ -197,7 +187,7 @@ export function CardProduct({
   };
 
   return (
-    <Card withBorder radius='md' className={cx(classes.card, className)} {...others}>
+    <Card withBorder radius='md' className={cx(classes.card)} {...others}>
       <Card.Section withBorder inheritPadding py='xs'>
         <Group position='apart' noWrap>
           <Text fw='800' weight={500} component={Link} {...linkProps} truncate>{title}</Text>
@@ -247,12 +237,12 @@ export function CardProduct({
               <Text size='xs'>{brand}</Text>
             </Center>
           }
-          {categories?.length > 0 &&
+          {categories !== undefined &&
             <Center>
               <Tooltip label='Categories' withArrow position='top'>
                 <IconTags size='1.05rem' className={classes.icon} stroke={1.5} />
               </Tooltip>
-              <Text size='xs'>{categories[0].category.name}</Text>
+              <Text size='xs'>{categories[0]?.category.name}</Text>
             </Center>
           }
         </Group>
