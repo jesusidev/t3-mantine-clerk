@@ -1,18 +1,10 @@
-import { color } from '~/styles/colors';
-import { type MantineThemeOverride } from '@mantine/core';
+import { color, Colors } from '~/styles/colors';
+import { createTheme, type MantineThemeOverride } from '@mantine/core';
 import { breakpoints } from '~/styles/breakpoints';
-import { button } from '~/styles/button';
-import { actionIcon } from '~/styles/actionIcon';
 
-export const theme: MantineThemeOverride = {
-  colorScheme: 'light',
-  dir: 'ltr',
-  colors: color,
-  primaryColor: 'brand',
-  components: {
-    Button: button,
-    ActionIcon: actionIcon,
-  },
+export const theme: MantineThemeOverride = createTheme({
+  colors: color as Colors,
+  primaryColor: color.brand[6],
   fontFamily: '\'Work Sans\', sans-serif',
   headings: {
     fontFamily: '\'Roboto\', sans-serif',
@@ -24,4 +16,4 @@ export const theme: MantineThemeOverride = {
     lg: breakpoints.laptop,
     xl: breakpoints.desktop,
   },
-};
+});
