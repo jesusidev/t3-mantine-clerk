@@ -40,13 +40,13 @@ export default function ModalCreateProject({ opened, close }: { opened: boolean;
       onClose={close}
       withCloseButton={false}
       overlayProps={{
-        color: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2],
+        color: theme.colors.gray[2],
         opacity: 0.55,
         blur: 3,
       }}
     >
       <Container size={420} my={40}>
-        <Title align='center' order={3}>
+        <Title order={3}>
           Please Enter Your Project Name:
         </Title>
         {formError && <div style={{ color: 'red' }}>{formError}</div>}

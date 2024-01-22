@@ -1,0 +1,16 @@
+.user {
+    display: block;
+    width: 100%;
+    padding: var(--mantine-spacing-md);
+    color: light-dark(
+            var(--mantine-colors-dark-0),
+            var(--mantine-black)
+    );
+
+    &:hover {
+        background-color: light-dark(
+                var(--mantine-colors-dark-8),
+                var(--mantine-colors-gray-0)
+        );
+    }
+}

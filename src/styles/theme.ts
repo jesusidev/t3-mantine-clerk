@@ -4,7 +4,7 @@ import { breakpoints } from '~/styles/breakpoints';
 
 export const theme: MantineThemeOverride = createTheme({
   colors: color as Colors,
-  primaryColor: color.brand[6],
+  // primaryColor: color.blue[6],
   fontFamily: '\'Work Sans\', sans-serif',
   headings: {
     fontFamily: '\'Roboto\', sans-serif',

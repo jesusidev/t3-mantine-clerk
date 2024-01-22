@@ -1,5 +1,13 @@
 .input {
     background-color: light-dark(
+            var(--mantine-colors-red-8),
+            rgba(var(--mantine-colors-red-0), 0.15)
+    );
+}
 
+.icon {
+    color: light-dark(
+            var(--mantine-colors-red-7),
+            var(--mantine-colors-red-6)
     );
 }

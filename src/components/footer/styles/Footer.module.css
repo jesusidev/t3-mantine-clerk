@@ -1,0 +1,103 @@
+.footer {
+    margin-top: auto;
+    padding-top: calc(var(--mantine-spacing-xl) * 2);
+    padding-bottom: calc(var(--mantine-spacing-xl) * 2);
+    background-color: light-dark(
+            var(--mantine-color-gray-0),
+            var(--mantine-color-dark-6)
+    );
+    border-top: 1px solid light-dark(
+            var(--mantine-color-dark-5),
+            var(--mantine-color-gray-2)
+    );
+}
+
+.logo {
+    max-width: 200rem;
+
+    @media (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.description {
+    margin-top: 5rem;
+
+    @media (max-width: 600px) {
+        margin-top: var(--mantine-spacing-xs);
+        text-align: center;
+    }
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.groups {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
+}
+
+.wrapper {
+    width: 160rem;
+}
+
+.link {
+    display: block;
+    color: light-dark(
+            var(--mantine-color-dark-1),
+            var(--mantine-color-gray-6)
+    );
+    font-size: var(--mantine-fontSizes-sm);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.title {
+    font-size: var(--mantine-fontSizes-lg);
+    font-weight: 700;
+    margin-bottom: calc(var(--mantine-spacing-xs) / 2);
+    color: light-dark(
+            var(--mantine-color-dark-0),
+            var(--mantine-color-gray-9)
+    );
+}
+
+.afterFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--mantine-spacing-xl);
+    padding-top: var(--mantine-spacing-xl);
+    padding-bottom: var(--mantine-spacing-xl);
+    border-top: 1px solid light-dark(
+            var(--mantine-color-dark-4),
+            var(--mantine-color-gray-2)
+    );
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+}
+
+.social {
+    @media (max-width: 600px) {
+        margin-top: var(--mantine-spacing-xs);
+    }
+}

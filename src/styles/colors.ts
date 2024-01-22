@@ -110,13 +110,8 @@ const colors = {
 
 export type ColorName = keyof typeof colors;
 
-// export type Colors = {
-//   [Key in ColorName]: ReadonlyArray<string>;
-// };
-
-type Tuple<TItem, TLength extends number> = TItem[] & { length: TLength };
-
 export type Colors = {
-  [Key in ColorName]: Tuple<string, 10>;
+  [key in ColorName]: (typeof colors)[key];
 };
+
 export const color: Colors = colors;

@@ -66,7 +66,7 @@ export default function ProductPage() {
               size='md'
               ref={inputRef}
               rightSection={
-                <ActionIcon size={32} radius='xl' color={theme.primaryColor} variant='filled' onClick={() => {
+                <ActionIcon size={32} radius='xl' variant='filled' onClick={() => {
                   createCategory({
                     name: inputRef.current.value,
                     id: id as string,
