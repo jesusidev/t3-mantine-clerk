@@ -1,19 +1,20 @@
 import { LoggedInNavbar } from '~/components/navigation/loggedIn';
 
 import { Container, Grid } from '@mantine/core';
+import React from 'react';
 
 type LayoutDashboardProps = {
-  children: string | JSX.Element | (string | JSX.Element | JSX.Element[])[];
+  children: React.ReactNode;
 }
 export default function LayoutDashboard({ children }: LayoutDashboardProps) {
 
   return (
     <Container maw={'100%'} w={'100%'} p={0}>
       <Grid gutter={'sm'}>
-        <Grid.Col xs={12} lg={3} xl={'auto'}>
+        <Grid.Col>
           <LoggedInNavbar />
         </Grid.Col>
-        <Grid.Col xs={12} lg={9} xl={10}>
+        <Grid.Col>
           <main>
             {children}
           </main>

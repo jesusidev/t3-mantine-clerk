@@ -1,0 +1,10 @@
+.product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.controls {
+    transition: opacity 150ms ease;
+    opacity: 0;
+}

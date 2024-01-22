@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import { FooterPrimary } from '~/components/footer';
 import { NavigationPrimary } from '~/components/navigation';
+import React from 'react';
 
 type LayoutPageProps = {
-  children: string | JSX.Element | (string | JSX.Element | JSX.Element[])[];
+  children: React.ReactNode;
 }
 export default function LayoutPage({ children }: LayoutPageProps) {
   return (

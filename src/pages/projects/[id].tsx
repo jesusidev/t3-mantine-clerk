@@ -40,7 +40,7 @@ export default function ProjectPage() {
             size='md'
             ref={inputRef}
             rightSection={
-              <ActionIcon size={32} radius='xl' color={theme.primaryColor} variant='filled' onClick={() => {
+              <ActionIcon size={32} radius='xl' variant='filled' onClick={() => {
                 createProduct({
                   name: inputRef.current.value,
                   brand: 'test',

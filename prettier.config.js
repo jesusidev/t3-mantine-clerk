@@ -1,4 +1,4 @@
-{
+const config ={
   "$schema": "http://json.schemastore.org/prettierrc",
   "overrides": [
     {
@@ -20,3 +20,5 @@
   "proseWrap": "preserve",
   "endOfLine": "lf"
 }
+
+export default config;

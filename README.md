@@ -4,7 +4,7 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 
 ## What's next? How do I make an app with this?
 
-To get started locally create a prisma database by running `docker-compose up -d`
+To get started locally create a postgres database by running `docker-compose up -d`
 
 - [Next.js](https://nextjs.org)
 - [Clerk Auth](https://clerk.com/docs/nextjs/set-environment-keys)

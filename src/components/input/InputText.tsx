@@ -1,16 +1,17 @@
-import { createStyles, TextInput, type TextInputProps } from '@mantine/core';
+import { TextInput, type TextInputProps } from '@mantine/core';
 import { IconAlertTriangle } from '@tabler/icons-react';
+import classes from './styles/InputText.module.css';
 
-const useStyles = createStyles((theme) => ({
-  input: {
-    backgroundColor:
-      theme.colorScheme === 'dark' ? theme.fn.rgba(theme.colors.red[8], 0.15) : theme.colors.red[0],
-  },
-
-  icon: {
-    color: theme.colors.red[theme.colorScheme === 'dark' ? 7 : 6],
-  },
-}));
+// const useStyles = createStyles((theme) => ({
+//   input: {
+//     backgroundColor:
+//       theme.colorScheme === 'dark' ? theme.fn.rgba(theme.colors.red[8], 0.15) : theme.colors.red[0],
+//   },
+//
+//   icon: {
+//     color: theme.colors.red[theme.colorScheme === 'dark' ? 7 : 6],
+//   },
+// }));
 
 export type InputTextProps = {
   label: string;
@@ -19,7 +20,6 @@ export type InputTextProps = {
 }
 
 export function InputText({ label, error, defaultValue, ...props }: InputTextProps & TextInputProps) {
-  const { classes } = useStyles();
   return (
     <TextInput
       {...props}

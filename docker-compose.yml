@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: postgres.dockerfile
-    image: postgres
+    image: postgres:14.10
     container_name: ${PG_CONTAINER_NAME}
     environment:
       POSTGRES_DB: ${POSTGRES_DB}

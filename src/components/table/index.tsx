@@ -12,7 +12,7 @@ export function TableSelection({ data }: UsersTableProps) {
   const rows = data?.map((item) => (
     <tr key={item.name}>
       <td width={'20%'}>
-        <Group spacing='sm'>
+        <Group>
           {/*<Avatar size={30} src={item.avatar} radius={30} />*/}
           <Text fz='sm' fw={500} component={Link} href={`/products/${item.id}`}>
             {item.name}
@@ -22,7 +22,7 @@ export function TableSelection({ data }: UsersTableProps) {
 
       <td width={'20%'}>
         {item.categories.map(({ category }) => (
-          <Badge mr={4} key={category.id} color='teal' variant={theme.colorScheme === 'dark' ? 'light' : 'outline'}>
+          <Badge mr={4} key={category.id} color='teal'>
             {category.name}
           </Badge>
         ))}
@@ -38,7 +38,7 @@ export function TableSelection({ data }: UsersTableProps) {
         </Text>
       </td>
       <td width={'8%'}>
-        <Group spacing={0} position='right'>
+        <Group>
           <ActionIcon>
             <IconPencil size='1rem' stroke={1.5} />
           </ActionIcon>
@@ -52,7 +52,7 @@ export function TableSelection({ data }: UsersTableProps) {
 
   return (
     <ScrollArea>
-      <Table sx={{ minWidth: 800 }} mt={15} verticalSpacing='sm' striped highlightOnHover withBorder withColumnBorders>
+      <Table mt={15} verticalSpacing='sm' striped highlightOnHover withColumnBorders>
         <thead>
         <tr>
           <th>Product</th>

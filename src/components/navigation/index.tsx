@@ -6,11 +6,9 @@ import {
   Button,
   Center,
   Collapse,
-  createStyles,
   Divider,
   Drawer,
   Group,
-  Header,
   HoverCard,
   rem,
   ScrollArea,
@@ -34,68 +32,9 @@ import {
 } from '@tabler/icons-react';
 import { SignedIn, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
+import classes from './styles/Navigation.module.css';
+import { color } from '~/styles/colors';
 
-const useStyles = createStyles((theme) => ({
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  link: {
-    display: 'flex',
-    alignItems: 'center',
-    height: '100%',
-    paddingLeft: theme.spacing.md,
-    paddingRight: theme.spacing.md,
-    textDecoration: 'none',
-    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-    fontWeight: 500,
-    fontSize: theme.fontSizes.sm,
-
-    [theme.fn.smallerThan('sm')]: {
-      height: rem(42),
-      display: 'flex',
-      alignItems: 'center',
-      width: '100%',
-    },
-
-    ...theme.fn.hover({
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
-    }),
-  },
-
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  subLink: {
-    width: '100%',
-    padding: `${theme.spacing.xs} ${theme.spacing.md}`,
-    borderRadius: theme.radius.md,
-
-    ...theme.fn.hover({
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
-    }),
-
-    '&:active': theme.activeStyles,
-  },
-
-  dropdownFooter: {
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
-    margin: `calc(${theme.spacing.md} * -1)`,
-    marginTop: theme.spacing.sm,
-    padding: `${theme.spacing.md} calc(${theme.spacing.md} * 2)`,
-    paddingBottom: theme.spacing.xl,
-    borderTop: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]
-    }`,
-  },
-
-  hiddenMobile: {
-    [theme.fn.smallerThan('sm')]: {
-      display: 'none',
-    },
-  },
-
-  hiddenDesktop: {
-    [theme.fn.largerThan('sm')]: {
-      display: 'none',
-    },
-  },
-}));
 
 const mockdata = [
   {
@@ -133,21 +72,20 @@ const mockdata = [
 export function NavigationPrimary() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
-  const { classes, theme } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const dark = colorScheme === 'dark';
 
   const links = mockdata.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
-      <Group noWrap align='flex-start'>
+      <Group align='flex-start'>
         <ThemeIcon size={34} variant='default' radius='md'>
-          <item.icon size={rem(22)} color={theme.fn.primaryColor()} />
+          <item.icon size={rem(22)} />
         </ThemeIcon>
         <div>
           <Text size='sm' fw={500}>
             {item.title}
           </Text>
-          <Text size='xs' color='dimmed'>
+          <Text size='xs' >
             {item.description}
           </Text>
         </div>
@@ -156,10 +94,10 @@ export function NavigationPrimary() {
   ));
 
   return (
-    <Header px='md' height={60}>
-      <Group position='apart' sx={{ height: '100%' }}>
+    <div>
+      <Group>
 
-        <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
+        <Group className={classes.hiddenMobile}>
           <Text component={Link} href='/' className={classes.link}>
             Home
           </Text>
@@ -170,13 +108,13 @@ export function NavigationPrimary() {
                   <Box component='span' mr={5}>
                     Features
                   </Box>
-                  <IconChevronDown size={16} color={theme.fn.primaryColor()} />
+                  <IconChevronDown size={16} />
                 </Center>
               </a>
             </HoverCard.Target>
 
-            <HoverCard.Dropdown sx={{ overflow: 'hidden' }}>
-              <Group position='apart' px='md'>
+            <HoverCard.Dropdown>
+              <Group px='md'>
                 <Text fw={500}>Features</Text>
                 <Anchor href='#' fz='xs'>
                   View all
@@ -186,7 +124,7 @@ export function NavigationPrimary() {
               <Divider
                 my='sm'
                 mx='-md'
-                color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'}
+                color={color.purple[5]}
               />
 
               <SimpleGrid cols={2} spacing={0}>
@@ -194,12 +132,12 @@ export function NavigationPrimary() {
               </SimpleGrid>
 
               <div className={classes.dropdownFooter}>
-                <Group position='apart'>
+                <Group>
                   <div>
                     <Text fw={500} fz='sm'>
                       Get started
                     </Text>
-                    <Text size='xs' color='dimmed'>
+                    <Text size='xs'>
                       Their food sources have decreased, and their numbers
                     </Text>
                   </div>
@@ -245,7 +183,7 @@ export function NavigationPrimary() {
         zIndex={100}
       >
         <ScrollArea h={`calc(100vh - ${rem(60)})`} mx='-md'>
-          <Divider my='sm' color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
+          <Divider my='sm' color={color.red[0]} />
 
           <Text component={Link} href='/' className={classes.link}>
             Home
@@ -255,7 +193,7 @@ export function NavigationPrimary() {
               <Box component='span' mr={5}>
                 Features
               </Box>
-              <IconChevronDown size={16} color={theme.fn.primaryColor()} />
+              <IconChevronDown size={16} />
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
@@ -271,9 +209,9 @@ export function NavigationPrimary() {
             </Box>
           </SignedIn>
 
-          <Divider my='sm' color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
+          <Divider my='sm' />
 
-          <Group position='center' grow pb='xl' px='md'>
+          <Group grow pb='xl' px='md'>
             <Button component='a' href='/sign-in' variant='default'>Sign in</Button>
             <Button component='a' href='/sign-up'>Sign up</Button>
             <ActionIcon
@@ -287,6 +225,6 @@ export function NavigationPrimary() {
           </Group>
         </ScrollArea>
       </Drawer>
-    </Header>
+    </div>
   );
 }

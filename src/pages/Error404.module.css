@@ -1,0 +1,32 @@
+.root {
+    padding-top: var(--mantine-spacing-80);
+    padding-bottom: var(--mantine-spacing-80);
+}
+
+.title {
+    font-weight: 900;
+    font-size: var(--mantine-fontSizes-34);
+    margin-bottom: var(--mantine-spacing-md);
+
+    @media (max-width: 600px) {
+        font-size: var(--mantine-fontSizes-32);
+    }
+}
+
+.control {
+    @media (max-width: 600px) {
+        width: 100%;
+    }
+}
+
+.mobileImage {
+    @media (min-width: 601px) {
+        display: none;
+    }
+}
+
+.desktopImage {
+    @media (max-width: 600px) {
+        display: none;
+    }
+}

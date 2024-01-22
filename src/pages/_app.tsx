@@ -1,6 +1,6 @@
 import NextApp, { type AppContext, type AppProps } from 'next/app';
 import Head from 'next/head';
-import { type ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { api } from '~/utils/api';
 import { ClerkProvider } from '@clerk/nextjs';
@@ -10,19 +10,20 @@ import '@fontsource/roboto';
 import { useState } from 'react';
 import { dark } from '@clerk/themes';
 import { getCookie, setCookie } from 'cookies-next';
-import { useHotkeys } from '@mantine/hooks';
+import '@mantine/core/styles.css';
+
 
 const App = (props: AppProps) => {
   const { Component, pageProps } = props;
-  const [colorSchemeState, setColorSchemeState] = useState<ColorScheme>(pageProps.colorScheme === 'dark' ? 'dark' : 'light');
-  const toggleColorScheme = (value?: ColorScheme) => {
+  const [colorSchemeState, setColorSchemeState] = useState(pageProps.colorScheme === 'dark' ? 'dark' : 'light');
+  const toggleColorScheme = (value: string | undefined) => {
     const nextColorScheme = value || (colorSchemeState === 'dark' ? 'light' : 'dark');
     setColorSchemeState(nextColorScheme);
     setCookie('color-scheme', nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
   };
 
   //Ctrl/⌘ + J
-  useHotkeys([['mod+J', () => toggleColorScheme()]]);
+  // useHotkeys([['mod+J', () => toggleColorScheme()]]);
 
   return (
     <>
@@ -33,11 +34,8 @@ const App = (props: AppProps) => {
       </Head>
 
       <div dir='ltr' style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <ColorSchemeProvider colorScheme={colorSchemeState} toggleColorScheme={toggleColorScheme}>
           <MantineProvider
-            theme={{ ...theme, colorScheme: colorSchemeState }}
-            withGlobalStyles
-            withNormalizeCSS
+            theme={theme}
           >
             <ClerkProvider {...pageProps} appearance={{
               // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -47,7 +45,6 @@ const App = (props: AppProps) => {
               <Component {...pageProps} />
             </ClerkProvider>
           </MantineProvider>
-        </ColorSchemeProvider>
       </div>
     </>
   );

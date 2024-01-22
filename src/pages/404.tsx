@@ -1,53 +1,53 @@
-import { Button, Container, createStyles, Image, rem, SimpleGrid, Text, Title } from '@mantine/core';
+import { Button, Container, Image, SimpleGrid, Text, Title } from '@mantine/core';
 import LayoutDashboard from '~/layouts/dashboard';
+import classes from './Error404.module.css';
 
-const useStyles = createStyles((theme) => ({
-  root: {
-    paddingTop: rem(80),
-    paddingBottom: rem(80),
-  },
-
-  title: {
-    fontWeight: 900,
-    fontSize: rem(34),
-    marginBottom: theme.spacing.md,
-
-    [theme.fn.smallerThan('sm')]: {
-      fontSize: rem(32),
-    },
-  },
-
-  control: {
-    [theme.fn.smallerThan('sm')]: {
-      width: '100%',
-    },
-  },
-
-  mobileImage: {
-    [theme.fn.largerThan('sm')]: {
-      display: 'none',
-    },
-  },
-
-  desktopImage: {
-    [theme.fn.smallerThan('sm')]: {
-      display: 'none',
-    },
-  },
-}));
+// const useStyles = createStyles((theme) => ({
+//   root: {
+//     paddingTop: rem(80),
+//     paddingBottom: rem(80),
+//   },
+//
+//   title: {
+//     fontWeight: 900,
+//     fontSize: rem(34),
+//     marginBottom: theme.spacing.md,
+//
+//     [theme.fn.smallerThan('sm')]: {
+//       fontSize: rem(32),
+//     },
+//   },
+//
+//   control: {
+//     [theme.fn.smallerThan('sm')]: {
+//       width: '100%',
+//     },
+//   },
+//
+//   mobileImage: {
+//     [theme.fn.largerThan('sm')]: {
+//       display: 'none',
+//     },
+//   },
+//
+//   desktopImage: {
+//     [theme.fn.smallerThan('sm')]: {
+//       display: 'none',
+//     },
+//   },
+// }));
 
 export default function NotFoundPage() {
-  const { classes } = useStyles();
 
   return (
     <LayoutDashboard>
       <Container className={classes.root}>
-        <SimpleGrid spacing={80} cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1, spacing: 40 }]}>
+        <SimpleGrid spacing={80} cols={2}>
           <Image src='https://ui.mantine.dev/_next/static/media/image.11cd6c19.svg' className={classes.mobileImage}
                  alt={'404 Page Not Found'} />
           <div>
             <Title className={classes.title}>Something is not right...</Title>
-            <Text color='dimmed' size='lg'>
+            <Text size='lg'>
               Page you are trying to open does not exist. You may have mistyped the address, or the
               page has been moved to another URL. If you think this is an error contact support.
             </Text>

@@ -1,51 +1,52 @@
 import { useRef } from 'react';
-import { ActionIcon, createStyles, NumberInput, type NumberInputHandlers, rem } from '@mantine/core';
+import { ActionIcon, NumberInput, type NumberInputHandlers } from '@mantine/core';
 import { IconAlertTriangle, IconMinus, IconPlus } from '@tabler/icons-react';
+import classes from './styles/InputNumber.module.css';
 
-const useStyles = createStyles((theme, { error = '' }: InputNumberProps) => ({
-  wrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: `${rem(6)} ${theme.spacing.xs}`,
-    borderRadius: theme.radius.sm,
-    border: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? 'transparent' : theme.colors.gray[3]
-    }`,
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.white,
-
-    '&:focus-within': {
-      borderColor: theme.colors.blue[6],
-    },
-  },
-
-  control: {
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-    border: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? 'transparent' : theme.colors.gray[3]
-    }`,
-
-    '&:disabled': {
-      borderColor: theme.colorScheme === 'dark' ? 'transparent' : theme.colors.gray[3],
-      opacity: 0.8,
-      backgroundColor: 'transparent',
-    },
-  },
-
-  input: {
-    textAlign: 'center',
-    paddingRight: `${theme.spacing.sm} !important`,
-    paddingLeft: `${theme.spacing.sm} !important`,
-    height: rem(28),
-    flex: 1,
-    backgroundColor: error ? theme.colorScheme === 'dark' ? theme.fn.rgba(theme.colors.red[8], 0.15) : theme.colors.red[0] : 'transparent',
-  },
-
-  icon: {
-    color: theme.colors.red[theme.colorScheme === 'dark' ? 7 : 6],
-  },
-
-}));
+// const useStyles = createStyles((theme, { error = '' }: InputNumberProps) => ({
+//   wrapper: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//     padding: `${rem(6)} ${theme.spacing.xs}`,
+//     borderRadius: theme.radius.sm,
+//     border: `${rem(1)} solid ${
+//       theme.colorScheme === 'dark' ? 'transparent' : theme.colors.gray[3]
+//     }`,
+//     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.white,
+//
+//     '&:focus-within': {
+//       borderColor: theme.colors.blue[6],
+//     },
+//   },
+//
+//   control: {
+//     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+//     border: `${rem(1)} solid ${
+//       theme.colorScheme === 'dark' ? 'transparent' : theme.colors.gray[3]
+//     }`,
+//
+//     '&:disabled': {
+//       borderColor: theme.colorScheme === 'dark' ? 'transparent' : theme.colors.gray[3],
+//       opacity: 0.8,
+//       backgroundColor: 'transparent',
+//     },
+//   },
+//
+//   input: {
+//     textAlign: 'center',
+//     paddingRight: `${theme.spacing.sm} !important`,
+//     paddingLeft: `${theme.spacing.sm} !important`,
+//     height: rem(28),
+//     flex: 1,
+//     backgroundColor: error ? theme.colorScheme === 'dark' ? theme.fn.rgba(theme.colors.red[8], 0.15) : theme.colors.red[0] : 'transparent',
+//   },
+//
+//   icon: {
+//     color: theme.colors.red[theme.colorScheme === 'dark' ? 7 : 6],
+//   },
+//
+// }));
 
 type InputNumberProps = {
   min?: number;
@@ -56,7 +57,6 @@ type InputNumberProps = {
 }
 
 export function InputNumber({ min = 0, max, label, error, defaultValue, ...props }: InputNumberProps) {
-  const { classes } = useStyles({ error });
   const handlers = useRef<NumberInputHandlers>(null);
 
   return (

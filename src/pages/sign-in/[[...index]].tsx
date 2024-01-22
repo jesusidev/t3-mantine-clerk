@@ -12,8 +12,8 @@ export default function SignInPage() {
         <Paper withBorder shadow='md' p={20} mt={30} radius='md'>
           <Grid grow>
             <Grid.Col span={6}>
-              <Title align={'center'}>Welcome back!</Title>
-              <Text color='dimmed' size='sm' align='center' mt={5}>
+              <Title>Welcome back!</Title>
+              <Text size='sm'  mt={5}>
                 Do not have an account yet?{' '}
                 <Anchor size='sm' component={Link} href='/sign-up'>
                   Create account

@@ -10,64 +10,65 @@ import {
   IconTrash,
   IconX,
 } from '@tabler/icons-react';
-import { ActionIcon, Button, Card, Center, createStyles, Group, Image, Menu, rem, Text, Tooltip } from '@mantine/core';
+import { ActionIcon, Button, Card, Center, Group, Image, Menu, rem, Text, Tooltip } from '@mantine/core';
 import Link from 'next/link';
 import { api } from '~/utils/api';
 import { notifications } from '@mantine/notifications';
+import classes from './styles/CardProduct.module.css';
 
-const useStyles = createStyles((theme) => ({
-  card: {
-    maxWidth: '17em',
-    position: 'relative',
-    marginBottom: theme.spacing.md,
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-  },
-
-  rating: {
-    position: 'absolute',
-    top: theme.spacing.xs,
-    right: rem(12),
-    pointerEvents: 'none',
-  },
-
-  title: {
-    display: 'block',
-    marginTop: theme.spacing.md,
-    marginBottom: rem(5),
-  },
-
-  action: {
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
-    ...theme.fn.hover({
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
-    }),
-  },
-
-  label: {
-    marginBottom: theme.spacing.xs,
-    lineHeight: 1,
-    fontWeight: 700,
-    fontSize: theme.fontSizes.xs,
-    letterSpacing: rem(-0.25),
-    textTransform: 'uppercase',
-  },
-
-  section: {
-    padding: theme.spacing.md,
-    borderTop: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
-  },
-
-  icon: {
-    marginRight: rem(5),
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[5],
-  },
-
-  footer: {
-    marginTop: theme.spacing.md,
-  },
-}));
+// const useStyles = createStyles((theme) => ({
+//   card: {
+//     maxWidth: '17em',
+//     position: 'relative',
+//     marginBottom: theme.spacing.md,
+//     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+//   },
+//
+//   rating: {
+//     position: 'absolute',
+//     top: theme.spacing.xs,
+//     right: rem(12),
+//     pointerEvents: 'none',
+//   },
+//
+//   title: {
+//     display: 'block',
+//     marginTop: theme.spacing.md,
+//     marginBottom: rem(5),
+//   },
+//
+//   action: {
+//     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+//     ...theme.fn.hover({
+//       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
+//     }),
+//   },
+//
+//   label: {
+//     marginBottom: theme.spacing.xs,
+//     lineHeight: 1,
+//     fontWeight: 700,
+//     fontSize: theme.fontSizes.xs,
+//     letterSpacing: rem(-0.25),
+//     textTransform: 'uppercase',
+//   },
+//
+//   section: {
+//     padding: theme.spacing.md,
+//     borderTop: `${rem(1)} solid ${
+//       theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
+//     }`,
+//   },
+//
+//   icon: {
+//     marginRight: rem(5),
+//     color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[5],
+//   },
+//
+//   footer: {
+//     marginTop: theme.spacing.md,
+//   },
+// }));
 
 type Category = {
   categoryId: string;
@@ -103,7 +104,6 @@ export function CardProduct({
                               quantity,
                               ...others
                             }: ProductCardProps) {
-  const { classes, cx } = useStyles();
   const linkProps = { href: link };
   const trpc = api.useContext();
 
@@ -191,10 +191,10 @@ export function CardProduct({
   };
 
   return (
-    <Card withBorder radius='md' className={cx(classes.card)} {...others}>
+    <Card withBorder radius='md' className={classes.card} {...others}>
       <Card.Section withBorder inheritPadding py='xs'>
-        <Group position='apart' noWrap>
-          <Text fw='800' weight={500} component={Link} {...linkProps} truncate>{title}</Text>
+        <Group justify='space-between'>
+          <Text fw='800' component={Link} {...linkProps} truncate>{title}</Text>
           <Menu withinPortal position='bottom-end' shadow='sm' withArrow arrowPosition='center'>
             <Menu.Target>
               <ActionIcon>
@@ -203,8 +203,8 @@ export function CardProduct({
             </Menu.Target>
 
             <Menu.Dropdown>
-              <Menu.Item icon={<IconEdit size={rem(14)} />}>Edit</Menu.Item>
-              <Menu.Item icon={<IconTrash size={rem(14)} />} color='red.5'
+              <Menu.Item leftSection={<IconEdit size={rem(14)} />}>Edit</Menu.Item>
+              <Menu.Item leftSection={<IconTrash size={rem(14)} />} color='red.5'
                          onClick={() => onDeleteClick(id)}>
                 Delete
               </Menu.Item>
@@ -224,7 +224,7 @@ export function CardProduct({
 
 
       <Card.Section className={classes.section} mt='md'>
-        <Group spacing={8} mb={-8}>
+        <Group mb={-8}>
           {quantity &&
             <Center>
               <Tooltip label='Quantity' withArrow position='top'>
