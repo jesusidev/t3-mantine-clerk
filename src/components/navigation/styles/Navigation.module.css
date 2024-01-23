@@ -1,41 +1,54 @@
+.container {
+    background-color: light-dark(
+            var(--mantine-color-white),
+            var(--mantine-color-black-0)
+    );
+    border-bottom:0.0625rem solid #e9ecef;
+    font-family:'Work Sans',sans-serif;
+    height:3.75rem;
+    max-height:3.75rem;
+    padding-left:1rem;
+    padding-right:1rem;
+}
+
 .link {
-    display: flex;
     align-items: center;
+    color: light-dark(
+            var(--mantine-color-black-0),
+            var(--mantine-color-white-0)
+    );
+    display: flex;
+    font-size: var(--mantine-fontSizes-sm);
+    font-weight: 500;
     height: 100%;
     padding-left: var(--mantine-spacing-md);
     padding-right: var(--mantine-spacing-md);
     text-decoration: none;
-    color: light-dark(
-            var(--mantine-white),
-            var(--mantine-black)
-    );
-    font-weight: 500;
-    font-size: var(--mantine-fontSizes-sm);
 
     @media (max-width: 600px) {
-        height: var(--mantine-spacing-42);
-        display: flex;
         align-items: center;
+        display: flex;
+        height: var(--mantine-spacing-42);
         width: 100%;
     }
 
     &:hover {
         background-color: light-dark(
-                var(--mantine-colors-dark-6),
-                var(--mantine-colors-gray-0)
+                var(--mantine-color-dark-6),
+                var(--mantine-color-gray-0)
         );
     }
 }
 
 .subLink {
-    width: 100%;
-    padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
     border-radius: var(--mantine-radius-md);
+    padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+    width: 100%;
 
     &:hover {
         background-color: light-dark(
-                var(--mantine-colors-dark-7),
-                var(--mantine-colors-gray-0)
+                var(--mantine-color-dark-7),
+                var(--mantine-color-gray-0)
         );
     }
 
@@ -46,17 +59,17 @@
 
 .dropdownFooter {
     background-color: light-dark(
-            var(--mantine-colors-dark-7),
-            var(--mantine-colors-gray-0)
+            var(--mantine-color-dark-7),
+            var(--mantine-color-gray-0)
+    );
+    border-top: 1px solid light-dark(
+            var(--mantine-color-dark-5),
+            var(--mantine-color-gray-1)
     );
     margin: calc(var(--mantine-spacing-md) * -1);
     margin-top: var(--mantine-spacing-sm);
     padding: var(--mantine-spacing-md) calc(var(--mantine-spacing-md) * 2);
     padding-bottom: var(--mantine-spacing-xl);
-    border-top: 1px solid light-dark(
-            var(--mantine-colors-dark-5),
-            var(--mantine-colors-gray-1)
-    );
 }
 
 .hiddenMobile {

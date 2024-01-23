@@ -1,10 +1,9 @@
-import { color, Colors } from '~/styles/colors';
-import { createTheme, type MantineThemeOverride } from '@mantine/core';
+import { color } from '~/styles/colors';
+import { createTheme } from '@mantine/core';
 import { breakpoints } from '~/styles/breakpoints';
 
-export const theme: MantineThemeOverride = createTheme({
-  colors: color as Colors,
-  // primaryColor: color.blue[6],
+export const theme = createTheme({
+  colors: color,
   fontFamily: '\'Work Sans\', sans-serif',
   headings: {
     fontFamily: '\'Roboto\', sans-serif',

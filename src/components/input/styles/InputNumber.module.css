@@ -6,30 +6,30 @@
     border-radius: var(--mantine-radius-sm);
     border: 1px solid light-dark(
             'transparent',
-            var(--mantine-colors-gray-3)
+            var(--mantine-color-gray-3)
     );
     background-color: light-dark(
-            var(--mantine-colors-dark-5),
-            var(--mantine-colors-white)
+            var(--mantine-color-dark-5),
+            var(--mantine-color-white)
     );
 
     &:focus-within {
-        border-color: var(--mantine-colors-blue-6);
+        border-color: var(--mantine-color-blue-6);
     }
 }
 
 .control {
     background-color: light-dark(
-            var(--mantine-colors-dark-7),
-            var(--mantine-colors-white)
+            var(--mantine-color-dark-7),
+            var(--mantine-color-white)
     );
     border: 1px solid light-dark(
             'transparent',
-            var(--mantine-colors-gray-3)
+            var(--mantine-color-gray-3)
     );
 
     &:disabled {
-        border-color: var(--mantine-colors-gray-3);
+        border-color: var(--mantine-color-gray-3);
         opacity: 0.8;
         background-color: transparent;
     }
@@ -45,14 +45,14 @@
 
 .error {
     background-color: light-dark(
-            rgba(var(--mantine-colors-red-8), 0.15),
-            var(--mantine-colors-red-0)
+            rgba(var(--mantine-color-red-8), 0.15),
+            var(--mantine-color-red-0)
     );
 }
 
 .icon {
     color: light-dark(
-            var(--mantine-colors-red-7),
-            var(--mantine-colors-red-6)
+            var(--mantine-color-red-7),
+            var(--mantine-color-red-6)
     );
 }

@@ -18,7 +18,7 @@ import {
   UnstyledButton,
   useMantineColorScheme,
 } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import {useDisclosure} from '@mantine/hooks';
 import {
   IconBook,
   IconChartPie3,
@@ -30,10 +30,10 @@ import {
   IconNotification,
   IconSun,
 } from '@tabler/icons-react';
-import { SignedIn, UserButton } from '@clerk/nextjs';
+import {SignedIn, UserButton} from '@clerk/nextjs';
 import Link from 'next/link';
 import classes from './styles/Navigation.module.css';
-import { color } from '~/styles/colors';
+import {color} from '~/styles/colors';
 
 
 const mockdata = [
@@ -94,9 +94,8 @@ export function NavigationPrimary() {
   ));
 
   return (
-    <div>
-      <Group>
-
+    <header className={classes.container}>
+      <Group justify='space-between' h='100%'>
         <Group className={classes.hiddenMobile}>
           <Text component={Link} href='/' className={classes.link}>
             Home
@@ -225,6 +224,6 @@ export function NavigationPrimary() {
           </Group>
         </ScrollArea>
       </Drawer>
-    </div>
+    </header>
   );
 }

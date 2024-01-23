@@ -5,8 +5,8 @@ section {
 
     &:not(:last-of-type) {
         border-bottom: rem(1) solid light-dark(
-                var(--mantine-colors-dark-4),
-                var(--mantine-colors-gray-3)
+                var(--mantine-color-dark-4),
+                var(--mantine-color-gray-3)
         );
     }
 }
