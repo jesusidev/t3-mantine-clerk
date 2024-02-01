@@ -1,15 +1,15 @@
 .root {
-    padding-top: var(--mantine-spacing-80);
     padding-bottom: var(--mantine-spacing-80);
+    padding-top: var(--mantine-spacing-80);
 }
 
 .title {
+    font-size: var(--mantine-font-size-34);
     font-weight: 900;
-    font-size: var(--mantine-fontSizes-34);
     margin-bottom: var(--mantine-spacing-md);
 
     @media (max-width: 600px) {
-        font-size: var(--mantine-fontSizes-32);
+        font-size: var(--mantine-font-size-32);
     }
 }
 

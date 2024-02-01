@@ -1,6 +1,6 @@
-import { Button, Container, Group, List, rem, Text, ThemeIcon, Title } from '@mantine/core';
-import { IconCheck } from '@tabler/icons-react';
-import { useUser } from '@clerk/nextjs';
+import {Button, Container, Group, List, rem, Text, ThemeIcon, Title} from '@mantine/core';
+import {IconCheck} from '@tabler/icons-react';
+import {useUser} from '@clerk/nextjs';
 import classes from './styles/Hero.module.css';
 
 
@@ -62,7 +62,7 @@ export function Hero() {
       <div className={classes.inner}>
         <div className={classes.content}>
           <Title className={classes.title}>
-            Welcome {user?.firstName} to <span className={classes.highlight}>modern</span> Craft Cab!!! <br />
+            Welcome {user?.firstName} to <span className={classes.highlight}>modern</span> T3 Template!!! <br />
           </Title>
           <Text mt='md'>
             Build fully functional accessible web applications faster than ever – Mantine includes

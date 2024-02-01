@@ -77,7 +77,7 @@ export function NavigationPrimary() {
 
   const links = mockdata.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
-      <Group align='flex-start'>
+      <Group wrap="nowrap" align='flex-start'>
         <ThemeIcon size={34} variant='default' radius='md'>
           <item.icon size={rem(22)} />
         </ThemeIcon>
@@ -131,7 +131,7 @@ export function NavigationPrimary() {
               </SimpleGrid>
 
               <div className={classes.dropdownFooter}>
-                <Group>
+                <Group justify="space-between">
                   <div>
                     <Text fw={500} fz='sm'>
                       Get started

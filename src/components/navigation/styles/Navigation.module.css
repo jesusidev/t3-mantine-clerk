@@ -18,7 +18,7 @@
             var(--mantine-color-white-0)
     );
     display: flex;
-    font-size: var(--mantine-fontSizes-sm);
+    font-size: var(--mantine-font-size-sm);
     font-weight: 500;
     height: 100%;
     padding-left: var(--mantine-spacing-md);
@@ -28,14 +28,14 @@
     @media (max-width: 600px) {
         align-items: center;
         display: flex;
-        height: var(--mantine-spacing-42);
+        height: var(--mantine-spacing-lg);
         width: 100%;
     }
 
     &:hover {
         background-color: light-dark(
-                var(--mantine-color-dark-6),
-                var(--mantine-color-gray-0)
+                var(--mantine-color-gray-0),
+                var(--mantine-color-dark-7)
         );
     }
 }
@@ -47,8 +47,8 @@
 
     &:hover {
         background-color: light-dark(
-                var(--mantine-color-dark-7),
-                var(--mantine-color-gray-0)
+                var(--mantine-color-gray-0),
+                var(--mantine-color-dark-7)
         );
     }
 
@@ -58,14 +58,8 @@
 }
 
 .dropdownFooter {
-    background-color: light-dark(
-            var(--mantine-color-dark-7),
-            var(--mantine-color-gray-0)
-    );
-    border-top: 1px solid light-dark(
-            var(--mantine-color-dark-5),
-            var(--mantine-color-gray-1)
-    );
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
+    border-top: rem(1px) solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
     margin: calc(var(--mantine-spacing-md) * -1);
     margin-top: var(--mantine-spacing-sm);
     padding: var(--mantine-spacing-md) calc(var(--mantine-spacing-md) * 2);

@@ -1,24 +1,24 @@
 .card {
-    max-width: 17em;
-    position: relative;
-    margin-bottom: var(--mantine-spacing-md);
     background-color: light-dark(
             var(--mantine-color-gray-0),
             var(--mantine-color-dark-6)
     );
+    margin-bottom: var(--mantine-spacing-md);
+    max-width: 17em;
+    position: relative;
 }
 
 .rating {
-    position: absolute;
-    top: var(--mantine-spacing-xs);
-    right: var(--mantine-spacing-xl);
     pointer-events: none;
+    position: absolute;
+    right: var(--mantine-spacing-xl);
+    top: var(--mantine-spacing-xs);
 }
 
 .title {
     display: block;
-    margin-top: var(--mantine-spacing-md);
     margin-bottom: var(--mantine-spacing-5xl);
+    margin-top: var(--mantine-spacing-md);
 }
 
 .action {
@@ -36,28 +36,28 @@
 }
 
 .label {
-    margin-bottom: var(--mantine-spacing-xs);
-    line-height: 1;
+    font-size: var(--mantine-font-size-xs);
     font-weight: 700;
-    font-size: var(--mantine-fontSizes-xs);
     letter-spacing: var(--mantine-spacing-0.25);
+    line-height: 1;
+    margin-bottom: var(--mantine-spacing-xs);
     text-transform: uppercase;
 }
 
 .section {
-    padding: var(--mantine-spacing-md);
     border-top: 1px solid light-dark(
             var(--mantine-color-gray-4),
             var(--mantine-color-dark-3)
     );
+    padding: var(--mantine-spacing-md);
 }
 
 .icon {
-    margin-right: var(--mantine-spacing-5);
     color: light-dark(
             var(--mantine-color-dark-2),
             var(--mantine-color-gray-5)
     );
+    margin-right: var(--mantine-spacing-5);
 }
 
 .footer {
